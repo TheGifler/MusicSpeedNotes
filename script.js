@@ -129,9 +129,15 @@ const populateBoxes = () => {
     buttonFalse; //false
 };
 //Play Audio Function
+
 function playAudio(url) {
+  if (audioEnabled == true){
   new Audio(url).play();
+  }else{
+    return
+  }
 }
+
 //Start new Question Function
 
 const gameScore = () =>{
@@ -144,9 +150,9 @@ const nextQuestion = () =>{
   orderOfQuestions();
   populateGameFrame();
   populateBoxes();
-  if (i>0){ eButtonStartGame.setAttribute('onclick', `nextQuestion();`)} 
-  eButtonStartGame.style.visibility = `hidden`;
-  eButtonStartGame.innerHTML = `Next Question`;
+  if (i>0){ eNextQuestion.setAttribute('onclick', `nextQuestion();`)} 
+  eNextQuestion.style.visibility = `hidden`;
+  eNextQuestion.innerHTML = `Next Question`;
   console.log(`Temp Num : ${rTemp}`);
   i++;
   hideAfterAnswer(1);
@@ -176,6 +182,7 @@ let hideAfterAnswer = (truefalse) =>{//0 = hide, 1 = show;
 //*change this to grabbing the element values instead using (element.value)
 const buttonTrue = () => {
   //console.log(`User choice is: True`);
+  eNextQuestion.style.display = "inline-block"
   checkAnswer(0);
   playAudio(aCorrectPing);
   gameScore();
@@ -194,7 +201,7 @@ let checkAnswer = (tf) => {
     MNVArray[rTemp].increaseAttempts();
     eFeedbackInfo.innerHTML = `Correct!`
     uPoints++;
-    eButtonStartGame.style.visibility = `visible`;
+    eNextQuestion.style.visibility = `visible`;
   } else if (tf == 1) {
     MNVArray[rTemp].increaseIncorrect();
     MNVArray[rTemp].increaseAttempts();
@@ -229,12 +236,12 @@ const populateGameFrame = () => {
 };
 
 const startGame = () =>{
+
   orderOfQuestions();
   populateGameFrame();
   populateBoxes();
-  eButtonStartGame.setAttribute('onclick', `nextQuestion();`);
-  eButtonStartGame.style.visibility = `hidden`;
-  eButtonStartGame.innerHTML = `Next Question`;
+  eStartMenu.style.visibility = `hidden`;
+  eGamePlate.style.visibility = `visible`;
   update();
   startStopwatch();
 }
@@ -262,6 +269,9 @@ let offset = 0,
 render();
   
 function startStopwatch(evt) {
+  if (timerEnabled){
+    document.getElementById("stopwatch").setAttribute("style", "display: block;")
+  }
   if (paused) {
     paused = false;
     offset -= Date.now();
