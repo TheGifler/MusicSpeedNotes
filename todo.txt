@@ -1,2 +1,5 @@
 //Checks Answers Instead make is so that when the question is Genned it sets the correct box to create a function saying correct. The other mark the function as incorrect.
 Done
+//create streak system.
+//More points higher the streak.
+//create the option to pick and choose which notes you are assessing
