@@ -5,7 +5,7 @@ class LiteracyNote {
   constructor(name, value) {
     this._name = name;
     this._value = value;
-    this._appearance = `gameimages\\${name.toLowerCase()}.png`;
+    this._appearance = `https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages\\${name.toLowerCase().replace(/\s+/g, '')}.png`;
     this._attempts = 0;
     this._correct = 0;
     this._incorrect = 0;
@@ -45,12 +45,14 @@ class LiteracyNote {
 //Going to place the questions into forming an object and use this to keep a log
 
 //Create Notes
-const quaver = new LiteracyNote("Quaver", 0.5);
-const crotchet = new LiteracyNote("Crotchet", 1);
-const minum = new LiteracyNote("Minum", 2);
-const semibreve = new LiteracyNote("Semibreve", 4);
+const semiquaver = new LiteracyNote("Semiquaver", `1/4`);
+const tiedquaver = new LiteracyNote("Tied Quavers", `1/4 + 1/4`);
+const quaver = new LiteracyNote("Quaver", `1/2`);
+const crotchet = new LiteracyNote("Crotchet", `1`);
+const minum = new LiteracyNote("Minum", `2`);
+const semibreve = new LiteracyNote("Semibreve", `4`);
 //Create Music Note Value array
-const MNVArray = [quaver, crotchet, minum, semibreve];
+const MNVArray = [semiquaver, tiedquaver, quaver, crotchet, minum, semibreve];
 const MNVArrayFlex = [quaver, crotchet, minum, semibreve];
 //Array for storage of generated Questions
 const genQuestionArray = [];
