@@ -1,0 +1,31 @@
+.gameplate{
+    text-align: center;
+    background-color: aquamarine;
+    border: solid 1px black;
+}
+a[id*=questionpic]{
+    padding: 5px;
+}
+a[id*=questiontext]{
+    padding: 5px;
+}
+a[id*=operator]{
+    padding: 5px;
+}
+#questiontext2,
+#questionpic2,
+#operator,
+#operatortext{
+    display: none;
+}
+.buttonchoices{
+    display: block;
+}
+.questionimages{
+    image-rendering:pixelated;
+    max-width: 100%;
+    max-height: 200px;
+}
+#questionpic1{
+    object-fit: fill;
+}

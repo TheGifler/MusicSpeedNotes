@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="experimentalstyles.css">
+    
+    <title>Note Value Game</title>
+
+</head>
+<body>
+
+    <div class = "gameplate">
+        <div class = "gamescene1">
+            <p>Music Literacy: Note Values</p>
+            <p id="timer"></p>
+            <fieldset>
+                <legend>Stop Watch</legend>
+                <span id="s_minutes">00</span>:
+                <span id="s_seconds">00</span>:
+                <span id="s_ms">000</span>
+              </fieldset>
+            <p><button id="startgame" onclick="startGame()">Start Game!</button></p>
+            <p class="questionimages">
+                <img src=""  id="questionpic1"></img><a  id="operator">Placeholder</a><a  id="questionpic2">Placeholder</a>
+            </p>
+            <p class="feedback">
+                <a id="feedbackinfo">Test</a>
+            </p>
+            <p class="questiontexts">
+                <a  id="questiontext1"></a><a  id="operatortext">Placeholder</a><a  id="questiontext2">Placeholder</a>
+            </p>
+            <p class="buttonchoices">
+                <button id="buttonchoice0">p0</button><button id="buttonchoice1">p1</button><button id="buttonchoice2">p2</button>
+            </p>
+            <p class="scoreframe">
+                <span id="score">Points :<a id="scorepoints"></a></span>
+            </p>
+        </div>
+
+
+    </div>
+    
+</body>
+<footer>
+    <script src="./elements.js"></script>
+    <script src="./script.js"></script>
+    <script src="./media.js"></script>
+</footer>
+</html>
