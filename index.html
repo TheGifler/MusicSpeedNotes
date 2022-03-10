@@ -12,42 +12,54 @@
 
 </head>
 <body>
+    <div class="gamescreen">
+    <div id="startmenu">
+        <div class="startmenubuttons">
+            <p><button id="startgamebutton" onclick ="startGame()">Start Game!</button></p>
+            <p><button id="gamesettings" onclick="gameSettings()">Settings</button></p>
+            <p><button id="backbutton" onclick = "backButton()">Go Back</button></p>
 
-    <div class = "gameplate">
-        <div class = "gamescene1">
-            <p>Music Literacy: Note Values</p>
-            <p id="timer"></p>
-            <fieldset>
-                <legend>Stop Watch</legend>
-                <span id="s_minutes">00</span>:
-                <span id="s_seconds">00</span>:
-                <span id="s_ms">000</span>
-              </fieldset>
-            <p><button id="startgame" onclick="startGame()">Start Game!</button></p>
-            <p class="questionimages">
-                <img src=""  id="questionpic1"></img><a  id="operator">Placeholder</a><a  id="questionpic2">Placeholder</a>
-            </p>
-            <p class="feedback">
-                <a id="feedbackinfo">Test</a>
-            </p>
-            <p class="questiontexts">
-                <a  id="questiontext1"></a><a  id="operatortext">Placeholder</a><a  id="questiontext2">Placeholder</a>
-            </p>
-            <p class="buttonchoices">
-                <button id="buttonchoice0">p0</button><button id="buttonchoice1">p1</button><button id="buttonchoice2">p2</button>
-            </p>
-            <p class="scoreframe">
-                <span id="score">Points :<a id="scorepoints"></a></span>
-            </p>
         </div>
-
-
+        <div id = "gameplate">
+            <div class = "gamescene1">
+                <p>Music Literacy: Note Values</p>
+                <p id="timer"></p>
+                <fieldset id = "stopwatch">
+                    <legend>Stop Watch</legend>
+                    <span id="s_minutes">00</span>:
+                    <span id="s_seconds">00</span>:
+                    <span id="s_ms">000</span>
+                  </fieldset>
+                <p><button id="nextquestion" onclick="nextQuestion()" style = "display: none;">Next Question</button></p>
+                <p class="questionimages">
+                    <img src=""  id="questionpic1"></img><a  id="operator">Placeholder</a><a  id="questionpic2">Placeholder</a>
+                </p>
+                <p class="feedback">
+                    <a id="feedbackinfo">Test</a>
+                </p>
+                <p class="questiontexts">
+                    <a  id="questiontext1"></a><a  id="operatortext">Placeholder</a><a  id="questiontext2">Placeholder</a>
+                </p>
+                <p class="buttonchoices">
+                    <button id="buttonchoice0">p0</button><button id="buttonchoice1">p1</button><button id="buttonchoice2">p2</button>
+                </p>
+                <p class="scoreframe">
+                    <span id="score">Points :<a id="scorepoints"></a></span>
+                </p>
+            </div>
+    
+    
+        </div>
     </div>
+
+   
+</div>
     
 </body>
 <footer>
     <script src="./elements.js"></script>
     <script src="./script.js"></script>
     <script src="./media.js"></script>
+    <script src="./settings.js"></script>
 </footer>
 </html>

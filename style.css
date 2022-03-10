@@ -1,7 +1,40 @@
-.gameplate{
+#startmenu{
+    z-index: 999;
+    min-height: 350px;
+    max-height: 400px;
+    text-align: center;
+    border: solid 2px black;
+    position: relative;
+    
+
+
+}
+.startmenubuttons{
+    position: relative;
+    margin-top: 8%;
+}
+#backbutton{
+    visibility: hidden;
+}
+#startgamebutton{
+    
+    background-color: red;
+}
+#stopwatch {
+    display: none;
+}
+#gameplate{
+    z-index: 998;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 350px;
+    max-height: 400px;
     text-align: center;
     background-color: aquamarine;
     border: solid 1px black;
+    visibility: hidden;
 }
 a[id*=questionpic]{
     padding: 5px;
