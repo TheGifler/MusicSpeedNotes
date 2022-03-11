@@ -1,6 +1,13 @@
 let audioEnabled = true;
 let timerEnabled = true;
 
+let uSelectSemibreve = document.getElementById("semibreveselection");
+let uSelectMinum = document.getElementById("minumselection");
+let uSelectCrotchet = document.getElementById("crotchetselection");
+let uSelectQuaver = document.getElementById("quaverselection");
+let uSelectTiedQuavers = document.getElementById("tiedquaversselection");
+let uSelectSemiquaver = document.getElementById("semiquaverselection");
+
 
 const onOff = (x) =>{
     if (x == true){
@@ -39,3 +46,11 @@ const backButton = () =>{
     
     
 }
+
+/* const selectNotes = () =>{
+
+    const choosecolor = () =>{
+            if this.
+    }
+    this.setAttribute(`background-color: `)
+} */
