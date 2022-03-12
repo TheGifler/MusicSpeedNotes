@@ -8,6 +8,13 @@ let uSelectQuaver = document.getElementById("quaverselection");
 let uSelectTiedQuavers = document.getElementById("tiedquaversselection");
 let uSelectSemiquaver = document.getElementById("semiquaverselection");
 
+let uSelectSemibrevetoggle = 1;
+let uSelectMinumtoggle = 1;
+let uSelectCrotchettoggle = 1;
+let uSelectQuavertoggle = 1;
+let uSelectTiedQuaverstoggle = 1;
+let uSelectSemiquavertoggle = 1;
+
 
 const onOff = (x) =>{
     if (x == true){
@@ -46,11 +53,74 @@ const backButton = () =>{
     
     
 }
+uSelectSemibreve.addEventListener('click', function () { 
+    selectNotes(uSelectSemibreve); 
+})
+uSelectCrotchet.addEventListener('click', function () { 
+        selectNotes(uSelectCrotchet); 
+    })
+uSelectMinum.addEventListener('click', function () { 
+    selectNotes(uSelectMinum); 
+})
 
-/* const selectNotes = () =>{
+uSelectQuaver.addEventListener('click', function () { 
+    selectNotes(uSelectQuaver); 
+})
+uSelectSemiquaver.addEventListener('click', function () { 
+    selectNotes(uSelectSemiquaver); 
+})
+uSelectTiedQuavers.addEventListener('click', function () { 
+    selectNotes(uSelectTiedQuavers); 
+})
 
-    const choosecolor = () =>{
-            if this.
+
+
+
+
+
+const selectNotes = (element) =>{
+element.style.backgroundColor = (element.style.backgroundColor == `var(--set-note-color-on)`) ? `var(--set-note-color-off)` : `var(--set-note-color-on)`
+
+switch(element){//if element is these then toggle them
+    case uSelectSemibreve:
+        uSelectSemibrevetoggle = (uSelectSemibrevetoggle = 1) ? 0 : 1;
+      break;
+      case uSelectMinum:
+        uSelectMinumtoggle = (uSelectMinumtoggle = 1) ? 0 : 1; 
+      break;
+      case uSelectCrotchet:
+        uSelectCrotchettoggle = (uSelectCrotchettoggle = 1) ? 0 : 1;
+      break;
+      case uSelectQuaver:
+        uSelectQuavertoggle = (uSelectQuavertoggle = 1) ? 0 : 1;
+      break;
+      case uSelectTiedQuavers:
+      uSelectTiedQuaverstoggle = (uSelectQuavertoggle = 1) ? 0 : 1;
+        break;
+        case uSelectSemiquaver:
+        uSelectTiedQuaverstoggle = (uSelectTiedQuaverstoggle = 1) ? 0 : 1;
+        break;
+}
+}
+
+const finaliseSelection = () =>{//places chosen notes into array which will be used to customise questions
+    if(uSelectSemibrevetoggle == 1){
+        uChosenNoteSelection.push(0)
     }
-    this.setAttribute(`background-color: `)
-} */
+    if(uSelectMinumtoggle == 1){
+        uChosenNoteSelection.push(1)
+    }
+    if(uSelectCrotchettoggle == 1){
+        uChosenNoteSelection.push(2)
+    }
+    if(uSelectQuavertoggle == 1){
+        uChosenNoteSelection.push(3)
+    }
+    if(uSelectTiedQuaverstoggle == 1){
+        uChosenNoteSelection.push(4)
+    }
+    if(uSelectSemiquavertoggle == 1){
+        uChosenNoteSelection.push(5)
+    }
+    console.log(uChosenNoteSelection);
+}

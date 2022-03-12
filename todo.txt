@@ -3,3 +3,8 @@ Done
 //create streak system.
 //More points higher the streak.
 //create the option to pick and choose which notes you are assessing
+
+
+
+
+//Other Projects: Create an Automatic Launch Page.

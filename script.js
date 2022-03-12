@@ -74,6 +74,7 @@ let rTemp;
 
 let uChosenNoOfQuestions;
 let randomQuestionsChoose = true;
+let uChosenNoteSelection = [];
 
 //Counters
 let cNoOfQuestions = 5;
@@ -238,7 +239,8 @@ const populateGameFrame = () => {
 };
 
 const startGame = () =>{
-
+  
+  finaliseSelection();
   orderOfQuestions();
   populateGameFrame();
   populateBoxes();
