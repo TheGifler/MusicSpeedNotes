@@ -52,7 +52,10 @@ const crotchet = new LiteracyNote("Crotchet", `1`);
 const minum = new LiteracyNote("Minum", `2`);
 const semibreve = new LiteracyNote("Semibreve", `4`);
 //Create Music Note Value array
-const MNVArray = [semiquaver, tiedquaver, quaver, crotchet, minum, semibreve];
+const MNVArray = [semiquaver, tiedquaver, quaver, crotchet, minum, semibreve]
+let uSelectArray = [uSelectSemibrevetoggle,uSelectMinumtoggle,uSelectCrotchettoggle,uSelectQuavertoggle,uSelectTiedQuaverstoggle,uSelectSemibrevetoggle];
+
+
 const MNVArrayFlex = [quaver, crotchet, minum, semibreve];
 //Array for storage of generated Questions
 const genQuestionArray = [];
