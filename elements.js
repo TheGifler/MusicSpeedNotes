@@ -33,6 +33,7 @@
   const eStartMenu = document.getElementById("startmenu");
   const eSettings = document.getElementById("gamesettings")
   const eBackButton = document.getElementById("backbutton");
+  const eNoteSelect = document.getElementById("noteselectmenu");
 
   //Settings
 

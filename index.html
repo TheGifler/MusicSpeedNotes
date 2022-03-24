@@ -14,13 +14,39 @@
 <body>
     <div class="gamescreen">
     <div id="startmenu">
+        <div id="noteselectmenu">
+            Note Selection:
+            <table class="noteselectmenutable">
+                <tr>
+                    <th><img src="./gameimages/semibreve.png" alt="" class="noteselection " id="semibreveselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="./gameimages/minum.png" alt="" class="noteselection " id="minumselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="./gameimages/crotchet.png" alt="" class="noteselection " id="crotchetselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="./gameimages/quaver.png" alt="" class="noteselection " id="quaverselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="./gameimages/tiedquavers.png" alt="" class="noteselection " id="tiedquaversselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="./gameimages/semiquaver.png" alt="" class="noteselection " id="semiquaverselection" style ="background-color: var(--set-note-color-on);"></th>
+                    
+                </tr>
+                <!-- <tc>
+                    <th><img src="./gameimages/semibreve.png" alt="" class="noteselection "></th>
+                    <th><img src="./gameimages/minum.png" alt="" class="noteselection "></th>
+                </tc> -->
+
+
+            </table>
+
+            
+                
+              </div>
+              <div id="allstartmenubuttons">
         <div class="startmenubuttons">
             <p><button id="startgamebutton" onclick ="startGame()">Start Game!</button></p>
             <p><button id="gamesettings" onclick="gameSettings()">Settings</button></p>
             <p><button id="backbutton" onclick = "backButton()">Go Back</button></p>
 
         </div>
+    </div>
         </div>
+        
         <div id = "gameplate">
             <div class = "gamescene1">
                 <p>Music Literacy: Note Values</p>
@@ -51,29 +77,7 @@
     
     
         </div>
-        <div class="noteselectmenu">
-            Note Selection:
-            <table>
-                <tr>
-                    <th><img src="./gameimages/semibreve.png" alt="" class="noteselection " id="semibreveselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/minum.png" alt="" class="noteselection " id="minumselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/crotchet.png" alt="" class="noteselection " id="crotchetselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/quaver.png" alt="" class="noteselection " id="quaverselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/tiedquavers.png" alt="" class="noteselection " id="tiedquaversselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/semiquaver.png" alt="" class="noteselection " id="semiquaverselection" style ="background-color: var(--set-note-color-on);"></th>
-                    
-                </tr>
-                <!-- <tc>
-                    <th><img src="./gameimages/semibreve.png" alt="" class="noteselection "></th>
-                    <th><img src="./gameimages/minum.png" alt="" class="noteselection "></th>
-                </tc> -->
-
-
-            </table>
-
-            
-                
-              </div>
+        
         </div>
     </div>
 

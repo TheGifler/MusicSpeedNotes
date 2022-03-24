@@ -46,6 +46,7 @@ const gameSettings = () =>{
     document.getElementById("timerbutton").innerHTML = `Game timer is: ${onOff(timerEnabled)}.`
     document.getElementById("timerbutton").setAttribute( "onClick", "toggleTimer();" );
     eBackButton.style.visibility = `visible`;
+    eNoteSelect.style.display = `inline-block`;
 }
 const backButton = () =>{
     eBackButton.style.visibility = `hidden`;
@@ -55,7 +56,7 @@ const backButton = () =>{
     document.getElementById("timerbutton").innerHTML = `Settings`
     document.getElementById("timerbutton").setAttribute( "onClick", "gameSettings();" );
     document.getElementById("timerbutton").setAttribute( "id", "gamesettings" );
-    
+    eNoteSelect.style.display = `none`;
     
 }
 uSelectSemibreve.addEventListener('click', function () { 
@@ -88,27 +89,29 @@ element.style.backgroundColor = (element.style.backgroundColor == `var(--set-not
 
 switch(element){//if element is these then toggle them
     case uSelectSemibreve:
-        uSelectSemibrevetoggle = (uSelectSemibrevetoggle = 1) ? 0 : 1;
+        uSelectSemibrevetoggle = (uSelectSemibrevetoggle == 1) ? 0 : 1;
       break;
       case uSelectMinum:
-        uSelectMinumtoggle = (uSelectMinumtoggle = 1) ? 0 : 1; 
+        uSelectMinumtoggle = (uSelectMinumtoggle == 1) ? 0 : 1; 
       break;
       case uSelectCrotchet:
-        uSelectCrotchettoggle = (uSelectCrotchettoggle = 1) ? 0 : 1;
+        uSelectCrotchettoggle = (uSelectCrotchettoggle == 1) ? 0 : 1;
       break;
       case uSelectQuaver:
-        uSelectQuavertoggle = (uSelectQuavertoggle = 1) ? 0 : 1;
+        uSelectQuavertoggle = (uSelectQuavertoggle == 1) ? 0 : 1;
       break;
       case uSelectTiedQuavers:
-      uSelectTiedQuaverstoggle = (uSelectQuavertoggle = 1) ? 0 : 1;
+      uSelectTiedQuaverstoggle = (uSelectTiedQuaverstoggle == 1) ? 0 : 1;
         break;
         case uSelectSemiquaver:
-        uSelectTiedQuaverstoggle = (uSelectTiedQuaverstoggle = 1) ? 0 : 1;
+            uSelectSemiquavertoggle = (uSelectSemiquavertoggle == 1) ? 0 : 1;
         break;
 }
 }
 
 const finaliseSelection = () =>{//places chosen notes into array which will be used to customise questions
+    let x = 0;
+    while(x == 0){
     if(uSelectSemibrevetoggle == 1){
         uChosenNoteSelection.push(0)
     }
@@ -127,5 +130,34 @@ const finaliseSelection = () =>{//places chosen notes into array which will be u
     if(uSelectSemiquavertoggle == 1){
         uChosenNoteSelection.push(5)
     }
-    console.log(uChosenNoteSelection);
+    x=1;
+}
+    return uChosenNoteSelection
+}
+const createGameArray = () =>{
+    for (let i = 0; i < uChosenNoteSelection.length; i++)
+    switch(uChosenNoteSelection[i]){
+        case 0: 
+         MNVArray.push(semibreve);
+         break;
+        case 1: 
+         MNVArray.push(minum);
+         break;
+        case 2: 
+         MNVArray.push(crotchet);
+         break;
+        case 3: 
+         MNVArray.push(quaver);
+         break;
+        case 4: 
+         MNVArray.push(tiedquaver);
+         break;
+        case 5: 
+         MNVArray.push(semiquaver);
+         break;
+        default:
+            return `Error`;
+
+    }
+
 }

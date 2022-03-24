@@ -52,9 +52,8 @@ const crotchet = new LiteracyNote("Crotchet", `1`);
 const minum = new LiteracyNote("Minum", `2`);
 const semibreve = new LiteracyNote("Semibreve", `4`);
 //Create Music Note Value array
-const MNVArray = [semiquaver, tiedquaver, quaver, crotchet, minum, semibreve]
-let uSelectArray = [uSelectSemibrevetoggle,uSelectMinumtoggle,uSelectCrotchettoggle,uSelectQuavertoggle,uSelectTiedQuaverstoggle,uSelectSemibrevetoggle];
 
+const MNVArray = [];
 
 const MNVArrayFlex = [quaver, crotchet, minum, semibreve];
 //Array for storage of generated Questions
@@ -107,6 +106,7 @@ const ranButtons = () => {
 };
 
 const populateBoxes = () => {
+  if (MNVArray.length > 2){
   qBox1 = genQuestionValue[currentQuestionNo];
   qBox2 = MNVArray[rNumGen(MNVArray.length)].value;
   qBox3 = MNVArray[rNumGen(MNVArray.length)].value;
@@ -117,7 +117,7 @@ const populateBoxes = () => {
   while (qBox3 == qBox1 || qBox3 == qBox2) {
     qBox3 = MNVArray[rNumGen(MNVArray.length)].value;
     console.log(`qBox3: Duplicate detected: Retrying`);
-  }
+  }}
   console.log(qBox1, qBox2, qBox3);
   ranButtons();
   document.getElementById(`buttonchoice${uRanButtonOrder[0]}`).innerHTML =
@@ -150,6 +150,10 @@ const gameScore = () =>{
   eScorePoints.innerHTML = uPoints;
 }
 const nextQuestion = () =>{
+  if ((uPoints > 2)) {
+    alert("Game End!");
+    stopStopwatch();
+  }else{
   let i = 0;
   resetVars();
   currentQuestionNo++;
@@ -162,7 +166,7 @@ const nextQuestion = () =>{
   console.log(`Temp Num : ${rTemp}`);
   i++;
   hideAfterAnswer(1);
-
+  }
 }
 
 let hideAfterAnswer = (truefalse) =>{//0 = hide, 1 = show;
@@ -188,6 +192,7 @@ let hideAfterAnswer = (truefalse) =>{//0 = hide, 1 = show;
 //*change this to grabbing the element values instead using (element.value)
 const buttonTrue = () => {
   //console.log(`User choice is: True`);
+  
   eNextQuestion.style.display = "inline-block"
   checkAnswer(0);
   playAudio(aCorrectPing);
@@ -244,6 +249,8 @@ const populateGameFrame = () => {
 const startGame = () =>{
   
   finaliseSelection();
+  if (uChosenNoteSelection.length >2){
+  createGameArray();
   orderOfQuestions();
   populateGameFrame();
   populateBoxes();
@@ -251,13 +258,15 @@ const startGame = () =>{
   eGamePlate.style.visibility = `visible`;
   update();
   startStopwatch();
+}else{
+  uChosenNoteSelection = [];
+  alert("Please enable at least THREE note values.")
+}
 }
 
 
 const update = () => {
-  if ((uPoints > 9)) {
-    alert("Game End!");
-  }
+  
   gameScore();
 };
 

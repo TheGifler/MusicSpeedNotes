@@ -17,6 +17,7 @@
 .startmenubuttons{
     position: relative;
     margin-top: 8%;
+    
 }
 #backbutton{
     visibility: hidden;
@@ -96,4 +97,15 @@ a[id*=operator]{
 }
 #questionpic1{
     object-fit: fill;
+}
+
+#noteselectmenu{
+    display: none;
+    text-align: center;
+}
+.noteselectmenutable{
+    margin: 0 auto;
+}
+.displayblock{
+    display: inline-block;
 }
