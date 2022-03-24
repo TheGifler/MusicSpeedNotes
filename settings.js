@@ -15,6 +15,11 @@ let uSelectQuavertoggle = 1;
 let uSelectTiedQuaverstoggle = 1;
 let uSelectSemiquavertoggle = 1;
 
+let uSelectArray = [uSelectSemibrevetoggle,uSelectMinumtoggle,uSelectCrotchettoggle,uSelectQuavertoggle,uSelectTiedQuaverstoggle,uSelectSemibrevetoggle];
+
+
+
+
 
 const onOff = (x) =>{
     if (x == true){
