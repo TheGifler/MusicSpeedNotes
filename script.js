@@ -52,6 +52,7 @@ const crotchet = new LiteracyNote("Crotchet", `1`);
 const minum = new LiteracyNote("Minum", `2`);
 const semibreve = new LiteracyNote("Semibreve", `4`);
 //Create Music Note Value array
+
 const MNVArray = [];
 
 const MNVArrayFlex = [quaver, crotchet, minum, semibreve];
