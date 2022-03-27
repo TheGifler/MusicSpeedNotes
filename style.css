@@ -109,3 +109,6 @@ a[id*=operator]{
 .displayblock{
     display: inline-block;
 }
+.resultsscreen{
+    text-align: center;
+}

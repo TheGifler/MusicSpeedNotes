@@ -151,8 +151,10 @@ const gameScore = () =>{
 }
 const nextQuestion = () =>{
   if ((uPoints > 2)) {
-    alert("Game End!");
     stopStopwatch();
+    alert("Game End!");
+    displayResults();
+    
   }else{
   let i = 0;
   resetVars();
