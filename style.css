@@ -30,17 +30,16 @@
     display: none;
 }
 #gameplate{
-    z-index: 998;
     position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     min-height: 350px;
     max-height: 400px;
     text-align: center;
-    background-color: aquamarine;
+    background-color: blanchedalmond;
     border: solid 1px black;
     visibility: hidden;
+    width:99%;
+    top: 0;
+    left: 0;
 }
 a[id*=questionpic]{
     padding: 5px;
@@ -110,5 +109,28 @@ a[id*=operator]{
     display: inline-block;
 }
 .resultsscreen{
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 99%;
     text-align: center;
+    border: solid 2px black;
+}
+.gamescreen{
+    position: relative;
+    width: 80%;
+    margin: auto;
+    z-index: 999;
+}
+.stopwatch{
+    
+    max-width: max-content;
+    margin: auto;
+}
+.noteresults{
+    border-top: 1px black solid;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 5px;
 }

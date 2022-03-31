@@ -9,6 +9,7 @@ class LiteracyNote {
     this._attempts = 0;
     this._correct = 0;
     this._incorrect = 0;
+    this._fastestTime = 0;
   }
   get name() {
     return this._name;
@@ -30,6 +31,9 @@ class LiteracyNote {
     //console.log(`This was incorrect`);
     return this._incorrect;
   }
+  get fastestTime(){
+    return this._fastestTime;
+  }
 
   increaseAttempts() {
     return this._attempts++;
@@ -39,6 +43,10 @@ class LiteracyNote {
   }
   increaseIncorrect() {
     return this._incorrect++;
+  }
+  setFastestTime(x) {
+    this._fastestTime = x;
+    return this._fastestTime;
   }
 }
 
@@ -81,6 +89,8 @@ let uChosenNoteSelection = [];
 //Counters
 let cNoOfQuestions = 5;
 let uPoints = 0;
+let gameFinish = false;
+
 //Buttons
 let uRanButtonOrder = [0, 1, 2];
 let qBox1;
@@ -104,6 +114,10 @@ const ranButtons = () => {
   shuffleArray(uRanButtonOrder);
   console.log(`RanButton order is : ${uRanButtonOrder}`);
 };
+
+//current time to completion of question:
+
+
 
 const populateBoxes = () => {
   if (MNVArray.length > 2){
@@ -150,11 +164,14 @@ const gameScore = () =>{
   eScorePoints.innerHTML = uPoints;
 }
 const nextQuestion = () =>{
+  //upon gameend show results screen
   if ((uPoints > 2)) {
     stopStopwatch();
     alert("Game End!");
     displayResults();
-    
+    rResultsScreen.style.visibility = `visible`;
+    eGamePlate.style.visibility = `hidden`;
+    eNextQuestion.style.display = `none`;
   }else{
   let i = 0;
   resetVars();
@@ -165,6 +182,7 @@ const nextQuestion = () =>{
   if (i>0){ eNextQuestion.setAttribute('onclick', `nextQuestion();`)} 
   eNextQuestion.style.visibility = `hidden`;
   eNextQuestion.innerHTML = `Next Question`;
+  eFeedbackInfo.innerHTML = ``;
   console.log(`Temp Num : ${rTemp}`);
   i++;
   hideAfterAnswer(1);
@@ -200,6 +218,7 @@ const buttonTrue = () => {
   playAudio(aCorrectPing);
   gameScore();
   hideAfterAnswer(0);
+  
 };
 const buttonFalse = () => {
   //console.log(`User Choice is :False`);
@@ -210,6 +229,7 @@ const buttonFalse = () => {
 let checkAnswer = (tf) => {
   //0 = true 1 = false
   if (tf == 0) {
+    setQuestionTime();
     MNVArray[rTemp].increaseCorrect();
     MNVArray[rTemp].increaseAttempts();
     eFeedbackInfo.innerHTML = `Correct!`
@@ -226,6 +246,7 @@ let checkAnswer = (tf) => {
   console.log(`Attempts ${MNVArray[rTemp].attempts}`);
   console.log(`Incorrect ${MNVArray[rTemp].incorrect}`);
   console.log(`Correct: ${MNVArray[rTemp].correct}`);
+  console.log(`Fastest Time: ${MNVArray[rTemp].fastestTime}`);
 };
 
 //Checks Answers Instead make is so that when the question is Genned it sets the correct box to create a function saying correct. The other mark the function as incorrect.
@@ -249,14 +270,14 @@ const populateGameFrame = () => {
 };
 
 const startGame = () =>{
-  
+  currentTime = Date.now();
   finaliseSelection();
   if (uChosenNoteSelection.length >2){
   createGameArray();
   orderOfQuestions();
   populateGameFrame();
   populateBoxes();
-  eStartMenu.style.visibility = `hidden`;
+  eStartMenu.style.display = `none`;
   eGamePlate.style.visibility = `visible`;
   update();
   startStopwatch();
@@ -283,6 +304,7 @@ let resetVars = () => {
 
 let offset = 0,
   paused = true;
+let currentTimeOffset;
 
 render();
   
@@ -328,5 +350,16 @@ function render() {
   if(!paused) {
     requestAnimationFrame(render);
   }
+}
+//finish 
+const setQuestionTime = () =>{
+  let compareTime = Date.now() - currentTimeOffset;
+  var value = compareTime;
+  let ms = format(value, 1, 1000, 3);
+  let seconds = format(value, 1000, 60, 2);
+  let minutes = format(value, 60000, 60, 2);
+  let time = `${minutes}:${seconds}:${ms}`
+  MNVArray[rTemp].setFastestTime(time);
+  
 }
 

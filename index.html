@@ -51,7 +51,7 @@
             <div class = "gamescene1">
                 <p>Music Literacy: Note Values</p>
                 <p id="timer"></p>
-                <fieldset id = "stopwatch">
+                <fieldset class="stopwatch" id = "stopwatch">
                     <legend>Stop Watch</legend>
                     <span id="s_minutes">00</span>:
                     <span id="s_seconds">00</span>:
@@ -62,7 +62,7 @@
                     <img src=""  id="questionpic1"></img><a  id="operator">Placeholder</a><a  id="questionpic2">Placeholder</a>
                 </p>
                 <p class="feedback">
-                    <a id="feedbackinfo">Test</a>
+                    <a id="feedbackinfo"></a>
                 </p>
                 <p class="questiontexts">
                     <a  id="questiontext1"></a><a  id="operatortext">Placeholder</a><a  id="questiontext2">Placeholder</a>
@@ -78,39 +78,39 @@
     
     
         </div>
-        <div class="resultsscreen">
-            <p>Results</p>
-            <p id="semibreveresult" style="display:none;">
+        <div class="resultsscreen" id="results">
+            <p><strong>Results</strong></p>
+            <p id="semibreveresult" class="noteresults" style="display:none;">
                     <img src="./gameimages/semibreve.png" alt="">
                     <br>
                     <span id="semibrevecorrect">PLACEHOLDER</span>
             </p>
-            <p id="minumresult" style="display:none;">
-                    <img src="/gameimages/minum.png" alt="">
+            <p id="minumresult" class="noteresults" style="display:none;">
+                    <img src="./gameimages/minum.png" alt="">
                     <br>
                     <span id="minumcorrect">PLACEHOLDER</span>
             </p>
-            <p id="crotchetresult" style="display:none;" >
+            <p id="crotchetresult" class="noteresults" style="display:none;" >
                 <img src="./gameimages/crotchet.png" alt="">
                 <br>
                 <span id="crotchetcorrect">PLACEHOLDER</span>
             </p>
-            <p id="quaverresult" style="display:none;">
+            <p id="quaverresult" class="noteresults" style="display:none;">
                 <img src="./gameimages/quaver.png" alt="">
                 <br>
                 <span id="quavercorrect">PLACEHOLDER</span>
             </p>
-            <p id="tiedquaversresult" style="display:none;">
+            <p id="tiedquaversresult" class="noteresults" style="display:none;">
                 <img src="./gameimages/tiedquavers.png" alt="">
                 <br>
                 <span id="tiedquavercorrect">PLACEHOLDER</span>
             </p>
-            <p id="semiquaverresult" style="display:none;">
+            <p id="semiquaverresult" class="noteresults" style="display:none;">
                 <img src="./gameimages/semiquaver.png" alt="">
                 <br>
                 <span id="semiquavercorrect">PLACEHOLDER</span>
             </p>
-            <p id="totalresults">Results Placeholder</p>
+            <p id="totalresults" class="noteresults" style = "padding: 10px;">Results Placeholder</p>
         </div>
         
         </div>
