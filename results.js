@@ -6,7 +6,7 @@ const rTiedQuaversResults = document.getElementById(`tiedquavercorrect`);
 const rSemiquaverResults = document.getElementById(`semiquavercorrect`);
 
 const rTotalResults = document.getElementById(`totalresults`);
-
+const rResultsScreen = document.getElementById(`results`);
 
 
 
