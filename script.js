@@ -54,7 +54,7 @@ class LiteracyNote {
 
 //Create Notes
 const semiquaver = new LiteracyNote("Semiquaver", `1/4`);
-const tiedquaver = new LiteracyNote("Tied Quavers", `1/4 + 1/4`);
+const tiedquaver = new LiteracyNote("Tied Quavers", `1/2 + 1/2`);
 const quaver = new LiteracyNote("Quaver", `1/2`);
 const crotchet = new LiteracyNote("Crotchet", `1`);
 const minum = new LiteracyNote("Minum", `2`);
@@ -87,9 +87,10 @@ let randomQuestionsChoose = true;
 let uChosenNoteSelection = [];
 
 //Counters
-let cNoOfQuestions = 5;
+let cNoOfQuestions = 10;
 let uPoints = 0;
 let gameFinish = false;
+let completionTime;
 
 //Buttons
 let uRanButtonOrder = [0, 1, 2];
@@ -165,7 +166,7 @@ const gameScore = () =>{
 }
 const nextQuestion = () =>{
   //upon gameend show results screen
-  if ((uPoints > 2)) {
+  if ((uPoints > (cNoOfQuestions - 1))) {
     stopStopwatch();
     alert("Game End!");
     displayResults();
@@ -173,9 +174,11 @@ const nextQuestion = () =>{
     eGamePlate.style.visibility = `hidden`;
     eNextQuestion.style.display = `none`;
   }else{
+    
   let i = 0;
   resetVars();
   currentQuestionNo++;
+  update();
   orderOfQuestions();
   populateGameFrame();
   populateBoxes();
@@ -280,6 +283,7 @@ const startGame = () =>{
   eStartMenu.style.display = `none`;
   eGamePlate.style.visibility = `visible`;
   update();
+  gameMusic.play();
   startStopwatch();
 }else{
   uChosenNoteSelection = [];
@@ -289,7 +293,7 @@ const startGame = () =>{
 
 
 const update = () => {
-  
+  questionCount();
   gameScore();
 };
 
@@ -305,8 +309,9 @@ let resetVars = () => {
 let offset = 0,
   paused = true;
 let currentTimeOffset;
-
+//Init Functions
 render();
+
   
 function startStopwatch(evt) {
   if (timerEnabled){
@@ -362,4 +367,20 @@ const setQuestionTime = () =>{
   MNVArray[rTemp].setFastestTime(time);
   
 }
+const setCompletionTime = () =>{
+  var value = paused ? offset : Date.now() + offset;
+  let ms = format(value, 1, 1000, 3);
+  let seconds = format(value, 1000, 60, 2);
+  let minutes = format(value, 60000, 60, 2);
+  document.getElementById(`endtime`).innerHTML = `Completion Time: ${minutes}:${seconds}:${ms} !`
+}
+
+const questionCount = () =>{
+  document.getElementById(`questioncount`).innerHTML = `Question Number ${(currentQuestionNo + 1)} of ${cNoOfQuestions}`
+}
+
+  /* document.body.addEventListener("mousemove", function (){
+    document.getElementById(`startmenumusic`).play();
+  }) */
+
 

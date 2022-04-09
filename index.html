@@ -11,6 +11,9 @@
     <title>Note Value Game</title>
 
 </head>
+<!-- Needing a user interaction first -->
+<audio id="startmenumusic" src="./soundfiles/Nostalgic.wav" loop="loop"></audio>
+
 <body>
     <div class="gamescreen">
     <div id="startmenu">
@@ -34,6 +37,22 @@
 
             </table>
 
+            <div class="options">
+                <form method="post">
+                    <label for="dropdown">Number of Questions:</label>
+                    <select id="dropdown" name="dropdown" onchange="changeHiddenInput(this)">
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                    </select>
+                
+                    <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+                </form>
+                
+                <div id="result"> 10 </div>
+                
+            </div>
             
                 
               </div>
@@ -57,6 +76,7 @@
                     <span id="s_seconds">00</span>:
                     <span id="s_ms">000</span>
                   </fieldset>
+                  <p id="questioncount"></p>
                 <p><button id="nextquestion" onclick="nextQuestion()" style = "display: none;">Next Question</button></p>
                 <p class="questionimages">
                     <img src=""  id="questionpic1"></img><a  id="operator">Placeholder</a><a  id="questionpic2">Placeholder</a>
@@ -80,6 +100,7 @@
         </div>
         <div class="resultsscreen" id="results">
             <p><strong>Results</strong></p>
+            <p id="endtime"></p>
             <p id="semibreveresult" class="noteresults" style="display:none;">
                     <span>Semibreve</span>
                     <br>
@@ -116,7 +137,7 @@
                 <span id="tiedquavercorrect">PLACEHOLDER</span>
             </p>
             <p id="semiquaverresult" class="noteresults" style="display:none;">
-                <span>Semiquaver</span>]
+                <span>Semiquaver</span>
                 <br>
                 <img src="./gameimages/semiquaver.png" alt="">
                 <br>

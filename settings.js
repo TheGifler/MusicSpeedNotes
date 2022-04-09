@@ -1,6 +1,7 @@
 let audioEnabled = true;
 let timerEnabled = true;
 
+
 let uSelectSemibreve = document.getElementById("semibreveselection");
 let uSelectMinum = document.getElementById("minumselection");
 let uSelectCrotchet = document.getElementById("crotchetselection");
@@ -16,6 +17,8 @@ let uSelectTiedQuaverstoggle = 1;
 let uSelectSemiquavertoggle = 1;
 
 let uSelectArray = [uSelectSemibrevetoggle,uSelectMinumtoggle,uSelectCrotchettoggle,uSelectQuavertoggle,uSelectTiedQuaverstoggle,uSelectSemibrevetoggle];
+
+
 
 
 
@@ -160,4 +163,16 @@ const createGameArray = () =>{
 
     }
 
+}
+
+
+
+function changeHiddenInput(objDropDown) {
+    console.log(objDropDown);
+    var objHidden = document.getElementById("hiddenInput");
+    objHidden.value = objDropDown.value;
+    var a = objHidden.value;
+    result.innerHTML = a || "";
+    cNoOfQuestions = a;
+    console.log(cNoOfQuestions);
 }
