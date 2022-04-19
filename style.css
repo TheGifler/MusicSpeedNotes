@@ -134,3 +134,18 @@ a[id*=operator]{
     margin: auto;
     padding-bottom: 5px;
 }
+.soundoption{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.imgsoundtoggle{
+    max-height: 20px;
+    max-width: 20px;
+}
+.soundtoggle{
+    border: none;
+    background: none;
+    cursor: pointer;
+}

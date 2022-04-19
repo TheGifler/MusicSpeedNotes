@@ -16,6 +16,7 @@
 
 <body>
     <div class="gamescreen">
+        
     <div id="startmenu">
         <div id="noteselectmenu">
             Note Selection:
@@ -58,14 +59,17 @@
               </div>
               <div id="allstartmenubuttons">
         <div class="startmenubuttons">
+            
             <p><button id="startgamebutton" onclick ="startGame()">Start Game!</button></p>
+            <p class="gamemusic" style = "display: none;"><button id="gamemusictoggle" onclick ="toggleMusicAudio()">MusicAudio?</button></p>
             <p><button id="gamesettings" onclick="gameSettings()">Settings</button></p>
             <p><button id="backbutton" onclick = "backButton()">Go Back</button></p>
 
         </div>
     </div>
+    
         </div>
-        
+        <div class = "soundframe">
         <div id = "gameplate">
             <div class = "gamescene1">
                 <p>Music Literacy: Note Values</p>
@@ -97,6 +101,10 @@
            
     
     
+        
+            <div class="soundoption">
+                <button class="soundtoggle" onclick="togglemusicsound()"><img class="imgsoundtoggle" src="./gameimages/soundon.png" alt="" id="togglesound"></button>
+            </div>
         </div>
         <div class="resultsscreen" id="results">
             <p><strong>Results</strong></p>
@@ -147,6 +155,8 @@
         </div>
         
         </div>
+        </div>
+        
     </div>
 
    

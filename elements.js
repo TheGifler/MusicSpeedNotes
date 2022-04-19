@@ -34,6 +34,7 @@
   const eSettings = document.getElementById("gamesettings")
   const eBackButton = document.getElementById("backbutton");
   const eNoteSelect = document.getElementById("noteselectmenu");
+  const eGameMusic = document.getElementById("gamemusictoggle");
 
   //Settings
 

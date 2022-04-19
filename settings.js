@@ -31,10 +31,13 @@ const onOff = (x) =>{
         return `<span style = "color: red;"><u><strong>Off</strong></u></span>`
     }
 }
-
+const toggleMusicAudio = () => {
+    gameMusicSound = !gameMusicSound;
+    document.getElementById("gamemusictoggle").innerHTML = `Game Music is: ${onOff(gameMusicSound)}.`
+}
 const toggleAudio = () => {
     audioEnabled = !audioEnabled;
-    document.getElementById("audiobutton").innerHTML = `Game audio is: ${onOff(audioEnabled)}.`
+    document.getElementById("audiobutton").innerHTML = `Game feedback audio is: ${onOff(audioEnabled)}.`
 }
 const toggleTimer = () => {
     timerEnabled = !timerEnabled;
@@ -50,6 +53,7 @@ const gameSettings = () =>{
     document.getElementById("timerbutton").setAttribute( "onClick", "toggleTimer();" );
     eBackButton.style.visibility = `visible`;
     eNoteSelect.style.display = `inline-block`;
+    eGameMusic.style.display=`block`;
 }
 const backButton = () =>{
     eBackButton.style.visibility = `hidden`;
@@ -60,6 +64,7 @@ const backButton = () =>{
     document.getElementById("timerbutton").setAttribute( "onClick", "gameSettings();" );
     document.getElementById("timerbutton").setAttribute( "id", "gamesettings" );
     eNoteSelect.style.display = `none`;
+    eGameMusic.style.display=`none`;
     
 }
 uSelectSemibreve.addEventListener('click', function () { 
