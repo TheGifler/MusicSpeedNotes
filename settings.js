@@ -1,6 +1,7 @@
 let audioEnabled = true;
 let timerEnabled = true;
 
+
 let uSelectSemibreve = document.getElementById("semibreveselection");
 let uSelectMinum = document.getElementById("minumselection");
 let uSelectCrotchet = document.getElementById("crotchetselection");
@@ -21,6 +22,8 @@ let uSelectArray = [uSelectSemibrevetoggle,uSelectMinumtoggle,uSelectCrotchettog
 
 
 
+
+
 const onOff = (x) =>{
     if (x == true){
         return `<span style = "color: green;"><u><strong>On</strong></u></span>`
@@ -28,10 +31,13 @@ const onOff = (x) =>{
         return `<span style = "color: red;"><u><strong>Off</strong></u></span>`
     }
 }
-
+const toggleMusicAudio = () => {
+    gameMusicSound = !gameMusicSound;
+    document.getElementById("gamemusictoggle").innerHTML = `Game Music is: ${onOff(gameMusicSound)}.`
+}
 const toggleAudio = () => {
     audioEnabled = !audioEnabled;
-    document.getElementById("audiobutton").innerHTML = `Game audio is: ${onOff(audioEnabled)}.`
+    document.getElementById("audiobutton").innerHTML = `Game feedback audio is: ${onOff(audioEnabled)}.`
 }
 const toggleTimer = () => {
     timerEnabled = !timerEnabled;
@@ -47,6 +53,7 @@ const gameSettings = () =>{
     document.getElementById("timerbutton").setAttribute( "onClick", "toggleTimer();" );
     eBackButton.style.visibility = `visible`;
     eNoteSelect.style.display = `inline-block`;
+    eGameMusic.style.display=`block`;
 }
 const backButton = () =>{
     eBackButton.style.visibility = `hidden`;
@@ -57,6 +64,7 @@ const backButton = () =>{
     document.getElementById("timerbutton").setAttribute( "onClick", "gameSettings();" );
     document.getElementById("timerbutton").setAttribute( "id", "gamesettings" );
     eNoteSelect.style.display = `none`;
+    eGameMusic.style.display=`none`;
     
 }
 uSelectSemibreve.addEventListener('click', function () { 
@@ -160,4 +168,16 @@ const createGameArray = () =>{
 
     }
 
+}
+
+
+
+function changeHiddenInput(objDropDown) {
+    console.log(objDropDown);
+    var objHidden = document.getElementById("hiddenInput");
+    objHidden.value = objDropDown.value;
+    var a = objHidden.value;
+    result.innerHTML = a || "";
+    cNoOfQuestions = a;
+    console.log(cNoOfQuestions);
 }

@@ -11,19 +11,23 @@
     <title>Note Value Game</title>
 
 </head>
+<!-- Needing a user interaction first -->
+<audio id="startmenumusic" src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/soundfiles/Nostalgic.wav" loop="loop"></audio>
+
 <body>
     <div class="gamescreen">
+        
     <div id="startmenu">
         <div id="noteselectmenu">
             Note Selection:
             <table class="noteselectmenutable">
                 <tr>
-                    <th><img src="./gameimages/semibreve.png" alt="" class="noteselection " id="semibreveselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/minum.png" alt="" class="noteselection " id="minumselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/crotchet.png" alt="" class="noteselection " id="crotchetselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/quaver.png" alt="" class="noteselection " id="quaverselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/tiedquavers.png" alt="" class="noteselection " id="tiedquaversselection" style ="background-color: var(--set-note-color-on);"></th>
-                    <th><img src="./gameimages/semiquaver.png" alt="" class="noteselection " id="semiquaverselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/semibreve.png" alt="" class="noteselection " id="semibreveselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/minum.png" alt="" class="noteselection " id="minumselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/crotchet.png" alt="" class="noteselection " id="crotchetselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/quaver.png" alt="" class="noteselection " id="quaverselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/tiedquavers.png" alt="" class="noteselection " id="tiedquaversselection" style ="background-color: var(--set-note-color-on);"></th>
+                    <th><img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/semiquaver.png" alt="" class="noteselection " id="semiquaverselection" style ="background-color: var(--set-note-color-on);"></th>
                     
                 </tr>
                 <!-- <tc>
@@ -34,19 +38,38 @@
 
             </table>
 
+            <div class="options">
+                <form method="post">
+                    <label for="dropdown">Number of Questions:</label>
+                    <select id="dropdown" name="dropdown" onchange="changeHiddenInput(this)">
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                    </select>
+                
+                    <input type="hidden" name="hiddenInput" id="hiddenInput" value="" />
+                </form>
+                
+                <div id="result"> 10 </div>
+                
+            </div>
             
                 
               </div>
               <div id="allstartmenubuttons">
         <div class="startmenubuttons">
+            
             <p><button id="startgamebutton" onclick ="startGame()">Start Game!</button></p>
+            <p class="gamemusic" style = "display: none;"><button id="gamemusictoggle" onclick ="toggleMusicAudio()">MusicAudio?</button></p>
             <p><button id="gamesettings" onclick="gameSettings()">Settings</button></p>
             <p><button id="backbutton" onclick = "backButton()">Go Back</button></p>
 
         </div>
     </div>
+    
         </div>
-        
+        <div class = "soundframe">
         <div id = "gameplate">
             <div class = "gamescene1">
                 <p>Music Literacy: Note Values</p>
@@ -57,6 +80,7 @@
                     <span id="s_seconds">00</span>:
                     <span id="s_ms">000</span>
                   </fieldset>
+                  <p id="questioncount"></p>
                 <p><button id="nextquestion" onclick="nextQuestion()" style = "display: none;">Next Question</button></p>
                 <p class="questionimages">
                     <img src=""  id="questionpic1"></img><a  id="operator">Placeholder</a><a  id="questionpic2">Placeholder</a>
@@ -77,36 +101,53 @@
            
     
     
+        
+            <div class="soundoption">
+                <button class="soundtoggle" onclick="togglemusicsound()"><img class="imgsoundtoggle" src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/soundon.png" alt="" id="togglesound"></button>
+            </div>
         </div>
         <div class="resultsscreen" id="results">
             <p><strong>Results</strong></p>
+            <p id="endtime"></p>
             <p id="semibreveresult" class="noteresults" style="display:none;">
-                    <img src="./gameimages/semibreve.png" alt="">
+                    <span>Semibreve</span>
+                    <br>
+                    <img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/semibreve.png" alt="">
                     <br>
                     <span id="semibrevecorrect">PLACEHOLDER</span>
             </p>
             <p id="minumresult" class="noteresults" style="display:none;">
-                    <img src="./gameimages/minum.png" alt="">
+                    <span>Minum</span>
+                    <br>
+                    <img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/minum.png" alt="">
                     <br>
                     <span id="minumcorrect">PLACEHOLDER</span>
             </p>
             <p id="crotchetresult" class="noteresults" style="display:none;" >
-                <img src="./gameimages/crotchet.png" alt="">
+                <span>Crotchet</span>
+                <br>
+                <img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/crotchet.png" alt="">
                 <br>
                 <span id="crotchetcorrect">PLACEHOLDER</span>
             </p>
             <p id="quaverresult" class="noteresults" style="display:none;">
-                <img src="./gameimages/quaver.png" alt="">
+                <span>Quaver</span>
+                <br>
+                <img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/quaver.png" alt="">
                 <br>
                 <span id="quavercorrect">PLACEHOLDER</span>
             </p>
             <p id="tiedquaversresult" class="noteresults" style="display:none;">
-                <img src="./gameimages/tiedquavers.png" alt="">
+                <span>Tied Quavers</span>
+                <br>
+                <img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/tiedquavers.png" alt="">
                 <br>
                 <span id="tiedquavercorrect">PLACEHOLDER</span>
             </p>
             <p id="semiquaverresult" class="noteresults" style="display:none;">
-                <img src="./gameimages/semiquaver.png" alt="">
+                <span>Semiquaver</span>
+                <br>
+                <img src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/semiquaver.png" alt="">
                 <br>
                 <span id="semiquavercorrect">PLACEHOLDER</span>
             </p>
@@ -114,6 +155,8 @@
         </div>
         
         </div>
+        </div>
+        
     </div>
 
    
@@ -121,10 +164,10 @@
     
 </body>
 <footer>
-    <script src="./elements.js"></script>
-    <script src="./script.js"></script>
-    <script src="./media.js"></script>
-    <script src="./settings.js"></script>
-    <script src="./results.js"></script>
+    <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/elements.js"></script>
+    <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/script.js"></script>
+    <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/media.js"></script>
+    <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/settings.js"></script>
+    <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/results.js"></script>
 </footer>
 </html>
