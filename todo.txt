@@ -8,3 +8,7 @@ Done
 
 
 //Other Projects: Create an Automatic Launch Page.
+
+
+//Know Issues Ipads do not auto clear cache.
+//Music will continue to play upon closing Ipads

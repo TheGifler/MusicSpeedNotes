@@ -1,12 +1,14 @@
 //Audio Files
 let gameMusicSound = true;
-const aCorrectPing = "./soundfiles/correctsfx.mp3";
-const aIncorrectAnswer = "./soundfiles/wronganswer.mp3";
-const gameMusic = new sound("./soundfiles/Puzzles.wav");
-const startMenuMusic = new sound("./soundfiles/Nostalgic.wav");
+const finishedMusic = directory_root+"/soundfiles/Resultswin.wav";
+const aCorrectPing = directory_root+"/soundfiles/correctsfx.mp3";
+const aIncorrectAnswer = directory_root+"/soundfiles/wronganswer.mp3";
+const gameMusic = new sound(directory_root+"/soundfiles/Puzzles.wav");
+
+const startMenuMusic = new sound(directory_root+"/soundfiles/Nostalgic.wav");
 const toggleMusicSound = document.getElementById("togglesound");
-const soundon = "./gameimages/soundon.png"
-const soundoff = "./gameimages/soundoff.png"
+const soundon = directory_root+"/gameimages/soundon.png"
+const soundoff = directory_root+"/gameimages/soundoff.png"
 
 
 function sound(src) {

@@ -35,7 +35,20 @@ const displayResults = () =>{
     checkArray(`Tied Quavers`);
     checkArray(`Semiquaver`);
     let percentage = (100*(totalCorrect / totalAttempts));
-    rTotalResults.innerHTML = `In total you managed to get ${percentage.toFixed(2)}% `
+    let grade;
+    if (percentage >= 70){
+        grade = "Grade: A"
+    }else if (percentage > 60){
+        grade = "Grade: B";
+    }else if (percentage > 50){
+        grade = "Grade: C";
+    }else if (percentage > 40){
+        grade = "Grade: D";
+    }else{
+        grade = "";
+    }
+    
+    rTotalResults.innerHTML = `In total you managed to get ${percentage.toFixed(2)}% <br> ${grade}`;
 
     
     

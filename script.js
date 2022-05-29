@@ -1,3 +1,4 @@
+const directory_root = "https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes";
 //Make this a speed test to see how fast they can get to a certain amount of points.
 
 //Class creator
@@ -69,6 +70,7 @@ const genQuestionArray = [];
 const genQuestionName = [];
 const genQuestionValue = [];
 const genQuestionAppearance = [];
+
 
 //Function Positionings
 let currentQuestionNo = 0;
@@ -168,10 +170,12 @@ const nextQuestion = () =>{
   //upon gameend show results screen
   if ((uPoints > (cNoOfQuestions - 1))) {
     stopStopwatch();
-    alert("Game End!");
+    gameMusic.stop()
+    playAudio(finishedMusic);
     displayResults();
+    rEndTime.innerHTML = `Finishing time: ${document.querySelector('#s_minutes').textContent}m ${document.querySelector('#s_seconds').textContent}s ${document.querySelector('#s_ms').textContent}ms`
     rResultsScreen.style.visibility = `visible`;
-    eGamePlate.style.visibility = `hidden`;
+    eGamePlate.style.display= `none`;
     eNextQuestion.style.display = `none`;
   }else{
     
@@ -347,7 +351,6 @@ function format(value, scale, modulo, padding) {
 
 function render() {
   var value = paused ? offset : Date.now() + offset;
-
   document.querySelector('#s_ms').textContent = format(value, 1, 1000, 3);
   document.querySelector('#s_seconds').textContent = format(value, 1000, 60, 2);
   document.querySelector('#s_minutes').textContent = format(value, 60000, 60, 2);
@@ -376,7 +379,7 @@ const setCompletionTime = () =>{
 }
 
 const questionCount = () =>{
-  document.getElementById(`questioncount`).innerHTML = `Question Number ${(currentQuestionNo + 1)} of ${cNoOfQuestions}`
+  document.getElementById(`questioncount`).innerHTML = `Question Number <strong><u>${(currentQuestionNo + 1)}</u></strong> of ${cNoOfQuestions}`
 }
 
   /* document.body.addEventListener("mousemove", function (){

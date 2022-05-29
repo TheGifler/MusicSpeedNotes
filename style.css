@@ -6,7 +6,7 @@
 #startmenu{
     z-index: 999;
     min-height: 350px;
-    max-height: 400px;
+    /*max-height: 400px;*/
     text-align: center;
     border: solid 2px black;
     position: relative;
@@ -30,9 +30,9 @@
     display: none;
 }
 #gameplate{
-    position:absolute;
+    position:relative;
     min-height: 350px;
-    max-height: 400px;
+    /*max-height: 400px;*/
     text-align: center;
     background-color: blanchedalmond;
     border: solid 1px black;
@@ -109,13 +109,14 @@ a[id*=operator]{
     display: inline-block;
 }
 .resultsscreen{
-    position: absolute;
+    position: relative;
     visibility: hidden;
     top: 0;
     left: 0;
     width: 99%;
     text-align: center;
     border: solid 2px black;
+    background: whitesmoke;
 }
 .gamescreen{
     position: relative;
@@ -148,4 +149,7 @@ a[id*=operator]{
     border: none;
     background: none;
     cursor: pointer;
+}
+.bold{
+    font-weight: bold;
 }

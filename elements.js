@@ -40,4 +40,7 @@
 
   let eAudioEnable;
   let eTimerButton;
- 
+  
+  
+  //Results Page
+ const  rEndTime = document.getElementById("endtime");
