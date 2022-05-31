@@ -173,11 +173,11 @@ const createGameArray = () =>{
 
 
 function changeHiddenInput(objDropDown) {
-    console.log(objDropDown);
+    //console.log(objDropDown);
     var objHidden = document.getElementById("hiddenInput");
     objHidden.value = objDropDown.value;
     var a = objHidden.value;
     result.innerHTML = a || "";
     cNoOfQuestions = a;
-    console.log(cNoOfQuestions);
+    //console.log(cNoOfQuestions);
 }

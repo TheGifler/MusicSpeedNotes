@@ -15,6 +15,7 @@
 <audio id="startmenumusic" src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/soundfiles/Nostalgic.wav" loop="loop"></audio>
 
 <body>
+    <div id ="gameborder1"class="gameborder" style=>
     <div class="gamescreen">
         
     <div id="startmenu">
@@ -69,45 +70,45 @@
     </div>
     
         </div>
-        <div class = "soundframe">
-        <div id = "gameplate">
-            <div class = "gamescene1">
-                <p class="bold"><u>Music Literacy: Note Values</u></p>
-                <br>
-                <p id="timer"></p>
-                <fieldset class="stopwatch" id = "stopwatch">
-                    <legend>Stop Watch</legend>
-                    <span id="s_minutes">00</span>:
-                    <span id="s_seconds">00</span>:
-                    <span id="s_ms">000</span>
-                  </fieldset>
-                  <p id="questioncount"></p>
-                <p><button id="nextquestion" onclick="nextQuestion()" style = "display: none;">Next Question</button></p>
-                <p class="questionimages">
-                    <img src=""  id="questionpic1"></img><a  id="operator">Placeholder</a><a  id="questionpic2">Placeholder</a>
-                </p>
-                <p class="feedback">
-                    <a id="feedbackinfo"></a>
-                </p>
-                <p class="questiontexts">
-                    <a  id="questiontext1"></a><a  id="operatortext">Placeholder</a><a  id="questiontext2">Placeholder</a>
-                </p>
-                <p class="buttonchoices">
-                    <button id="buttonchoice0">p0</button><button id="buttonchoice1">p1</button><button id="buttonchoice2">p2</button>
-                </p>
-                <p class="scoreframe">
-                    <span id="score">Points :<a id="scorepoints"></a></span>
-                </p>
-            </div>
-           
-    
-    
         
-            <div class="soundoption">
-                <button class="soundtoggle" onclick="togglemusicsound()"><img class="imgsoundtoggle" src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/soundon.png" alt="" id="togglesound"></button>
+        
+            <div id = "gameplate" class="nodisplay">
+                <div class = "gamescene1">
+                    <p class="bold"><u>Music Literacy: Note Values</u></p>
+                    <br>
+                    <p id="timer"></p>
+                    <fieldset class="stopwatch" id = "stopwatch">
+                        <legend>Stop Watch</legend>
+                        <span id="s_minutes">00</span>:
+                        <span id="s_seconds">00</span>:
+                        <span id="s_ms">000</span>
+                      </fieldset>
+                      <p id="questioncount"></p>
+                    <p><button id="nextquestion" onclick="nextQuestion()" style = "visibility: hidden;">Next Question</button></p>
+                    <p class="questionimages">
+                        <img src=""  id="questionpic1"></img><a  id="operator">Placeholder</a><a  id="questionpic2">Placeholder</a>
+                    </p>
+                    <p class="feedback">
+                        <a id="feedbackinfo"></a>
+                    </p>
+                    <p class="questiontexts">
+                        <a  id="questiontext1"></a><a  id="operatortext">Placeholder</a><a  id="questiontext2">Placeholder</a>
+                    </p>
+                    <p class="buttonchoices">
+                        <button id="buttonchoice0">p0</button><button id="buttonchoice1">p1</button><button id="buttonchoice2">p2</button>
+                    </p>
+                    <p class="scoreframe">
+                        <span id="score">Points :<a id="scorepoints"></a></span>
+                    </p>
+                </div>
+            
+            
+                <div class="soundoption">
+                    <button class="soundtoggle" onclick="togglemusicsound()"><img class="imgsoundtoggle" src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/gameimages/soundon.png" alt="" id="togglesound"></button>
+                </div>
             </div>
-        </div>
-        <div class="resultsscreen" id="results">
+        
+        <div class="resultsscreen nodisplay" id="results">
             <p><strong>Results</strong></p>
             <p id="endtime"></p>
             <p id="semibreveresult" class="noteresults" style="display:none;">
@@ -165,17 +166,23 @@
         </div>
         </div>
         
-    </div>
+   
 
    
+</div>
 </div>
     
 </body>
 <footer>
-    <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/elements.js"></script>
+    <script src="./elements.js"></script>
+    <script src="./script.js"></script>
+    <script src="./media.js"></script>
+    <script src="./settings.js"></script>
+    <script src="./results.js"></script>
+    <!-- <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/elements.js"></script>
     <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/script.js"></script>
     <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/media.js"></script>
     <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/settings.js"></script>
-    <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/results.js"></script>
+    <script src="https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes/results.js"></script> -->
 </footer>
 </html>

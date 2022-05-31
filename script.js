@@ -1,4 +1,4 @@
-const directory_root = "https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes";
+const directory_root = "."//"https://thesuccessfulteacher.co.uk/wp-content/uploads/MusicCurr/MusicGames/MusicSpeedNotes";
 //Make this a speed test to see how fast they can get to a certain amount of points.
 
 //Class creator
@@ -25,11 +25,11 @@ class LiteracyNote {
     return this._attempts;
   }
   get correct() {
-    //console.log(`This was correct`);
+    ////console.log(`This was correct`);
     return this._correct;
   }
   get incorrect() {
-    //console.log(`This was incorrect`);
+    ////console.log(`This was incorrect`);
     return this._incorrect;
   }
   get fastestTime(){
@@ -115,7 +115,7 @@ const rNumGen = (span) => Math.floor(Math.random() * span);
 //Randomise order of questions
 const ranButtons = () => {
   shuffleArray(uRanButtonOrder);
-  console.log(`RanButton order is : ${uRanButtonOrder}`);
+  //console.log(`RanButton order is : ${uRanButtonOrder}`);
 };
 
 //current time to completion of question:
@@ -129,13 +129,13 @@ const populateBoxes = () => {
   qBox3 = MNVArray[rNumGen(MNVArray.length)].value;
   while (qBox2 == qBox1 || qBox2 == qBox3) {
     qBox2 = MNVArray[rNumGen(MNVArray.length)].value;
-    console.log(`qBox2: Duplicate detected: Retrying`);
+    //console.log(`qBox2: Duplicate detected: Retrying`);
   }
   while (qBox3 == qBox1 || qBox3 == qBox2) {
     qBox3 = MNVArray[rNumGen(MNVArray.length)].value;
-    console.log(`qBox3: Duplicate detected: Retrying`);
+    //console.log(`qBox3: Duplicate detected: Retrying`);
   }}
-  console.log(qBox1, qBox2, qBox3);
+  ////console.log(qBox1, qBox2, qBox3);
   ranButtons();
   document.getElementById(`buttonchoice${uRanButtonOrder[0]}`).innerHTML =
     qBox1;
@@ -174,9 +174,9 @@ const nextQuestion = () =>{
     playAudio(finishedMusic);
     displayResults();
     rEndTime.innerHTML = `Finishing time: ${document.querySelector('#s_minutes').textContent}m ${document.querySelector('#s_seconds').textContent}s ${document.querySelector('#s_ms').textContent}ms`
-    rResultsScreen.style.visibility = `visible`;
+    rResultsScreen.classList.remove("nodisplay");
     eGamePlate.style.display= `none`;
-    eNextQuestion.style.display = `none`;
+    eNextQuestion.style.visibility = `hidden`;
   }else{
     
   let i = 0;
@@ -189,8 +189,8 @@ const nextQuestion = () =>{
   if (i>0){ eNextQuestion.setAttribute('onclick', `nextQuestion();`)} 
   eNextQuestion.style.visibility = `hidden`;
   eNextQuestion.innerHTML = `Next Question`;
-  eFeedbackInfo.innerHTML = ``;
-  console.log(`Temp Num : ${rTemp}`);
+  eFeedbackInfo.innerHTML = `   `;
+  ////console.log(`Temp Num : ${rTemp}`);
   i++;
   hideAfterAnswer(1);
   }
@@ -199,17 +199,17 @@ const nextQuestion = () =>{
 let hideAfterAnswer = (truefalse) =>{//0 = hide, 1 = show;
   if(truefalse == 0){ 
   for (let i = 0; i < 3; i++){
-    document.getElementById(`buttonchoice${uRanButtonOrder[i]}`).style.display = `none`
+    document.getElementById(`buttonchoice${uRanButtonOrder[i]}`).style.visibility = `hidden`
     } 
   for (let j = 1; j < 3; j++){
       document.getElementById(`questiontext${[j]}`).style.visibility = `hidden`
       }
     }else if (truefalse == 1) {
       for (let i = 0; i < 3; i++){
-        document.getElementById(`buttonchoice${uRanButtonOrder[i]}`).style.display = `inline-block`
+        document.getElementById(`buttonchoice${uRanButtonOrder[i]}`).style.visibility = `visible`
         } 
       for (let j = 1; j < 3; j++){
-          document.getElementById(`questiontext${[j]}`).style.visibility = `inline-block`
+          document.getElementById(`questiontext${[j]}`).style.visibility = `visible`
           }
     }
     
@@ -218,9 +218,9 @@ let hideAfterAnswer = (truefalse) =>{//0 = hide, 1 = show;
 //function for Assigining buttons correct or incorrect
 //*change this to grabbing the element values instead using (element.value)
 const buttonTrue = () => {
-  //console.log(`User choice is: True`);
+  //////console.log(`User choice is: True`);
   
-  eNextQuestion.style.display = "inline-block"
+  eNextQuestion.style.visibility = "visible"
   checkAnswer(0);
   playAudio(aCorrectPing);
   gameScore();
@@ -228,7 +228,7 @@ const buttonTrue = () => {
   
 };
 const buttonFalse = () => {
-  //console.log(`User Choice is :False`);
+  //////console.log(`User Choice is :False`);
   checkAnswer(1);
   playAudio(aIncorrectAnswer);
 };
@@ -247,13 +247,13 @@ let checkAnswer = (tf) => {
     MNVArray[rTemp].increaseAttempts();
     eFeedbackInfo.innerHTML = `Try Again!`
   } else {
-    console.log(`checkAnswer did not return a T//F value`);
+    ////console.log(`checkAnswer did not return a T//F value`);
   }
-  console.log(MNVArray[rTemp].name);
-  console.log(`Attempts ${MNVArray[rTemp].attempts}`);
-  console.log(`Incorrect ${MNVArray[rTemp].incorrect}`);
-  console.log(`Correct: ${MNVArray[rTemp].correct}`);
-  console.log(`Fastest Time: ${MNVArray[rTemp].fastestTime}`);
+  ////console.log(MNVArray[rTemp].name);
+  //console.log(`Attempts ${MNVArray[rTemp].attempts}`);
+  //console.log(`Incorrect ${MNVArray[rTemp].incorrect}`);
+  //console.log(`Correct: ${MNVArray[rTemp].correct}`);
+  //console.log(`Fastest Time: ${MNVArray[rTemp].fastestTime}`);
 };
 
 //Checks Answers Instead make is so that when the question is Genned it sets the correct box to create a function saying correct. The other mark the function as incorrect.
@@ -265,11 +265,11 @@ let orderOfQuestions = () => {
   genQuestionName.push(MNVArray[rTemp].name);
   genQuestionValue.push(MNVArray[rTemp].value);
   genQuestionAppearance.push(MNVArray[rTemp].appearance);
-  console.log(`Index of MNVArray chosen: ${genQuestionArray}`);
-  console.log(genQuestionName);
-  console.log(`Note Value:${genQuestionValue}`);
-  console.log(genQuestionAppearance);
-  console.log(`orderOfQuestions End \n ...`);
+  //console.log(`Index of MNVArray chosen: ${genQuestionArray}`);
+  //console.log(genQuestionName);
+  //console.log(`Note Value:${genQuestionValue}`);
+  //console.log(genQuestionAppearance);
+  //console.log(`orderOfQuestions End \n ...`);
 };
 const populateGameFrame = () => {
   eQuestionText1.innerHTML = `What is the note value of a <u><strong>${genQuestionName[currentQuestionNo]}</strong></u>?`;
@@ -277,6 +277,7 @@ const populateGameFrame = () => {
 };
 
 const startGame = () =>{
+  
   currentTime = Date.now();
   finaliseSelection();
   if (uChosenNoteSelection.length >2){
@@ -285,7 +286,8 @@ const startGame = () =>{
   populateGameFrame();
   populateBoxes();
   eStartMenu.style.display = `none`;
-  eGamePlate.style.visibility = `visible`;
+  eGamePlate.classList.remove("nodisplay");
+  
   update();
   gameMusic.play();
   startStopwatch();

@@ -19,7 +19,7 @@ const displayResults = () =>{
             if (MNVArray[i].name == `${notename}` && MNVArray[i].attempts > 0){
                 document.getElementById(`${notename.toLowerCase().replace(/\s+/g, '')}result`).style.display = `block`;
                 let reference = eval("r" + notename.replace(/\s+/g, '') + "Results"); //changes the reference into the element variable
-               console.log(reference);
+               ////console.log(reference);
                let referencePencentage = ((100*(MNVArray[i].correct / MNVArray[i].attempts)).toFixed(2))
                 reference.innerHTML = `You answered correctly ${MNVArray[i].correct} out of the ${MNVArray[i].attempts} times. <br> ${referencePencentage}%`
                 totalAttempts += MNVArray[i].attempts;
