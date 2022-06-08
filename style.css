@@ -11,11 +11,6 @@
     border: solid 2px black;
     position: relative;
     
- button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
-    color: #fff;
-    border-color: transparent !important;
-    border-color: #282828;
-}
 
 
 }
