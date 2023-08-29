@@ -4,7 +4,8 @@ Done
 //More points higher the streak.
 //create the option to pick and choose which notes you are assessing
 
-
+Allow user to add namne
+Add Print Button
 
 
 //Other Projects: Create an Automatic Launch Page.
